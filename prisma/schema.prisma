@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Project {
+  id          String      @id @default(cuid())
+  name        String
+  totalData   Int         @default(0)
+  completed   Int         @default(0)
+  status      ProjectStatus @default(IN_PROGRESS)
+  updatedAt   DateTime    @updatedAt
+  createdAt   DateTime    @default(now())
+
+  items       ProjectItem[]
+}
+
+enum ProjectStatus {
+  IN_PROGRESS
+  COMPLETED
+}
+
+model ProjectItem {
+  id           String     @id @default(cuid())
+  projectId    String
+
+  tweetAuthor  String     // tweet_author dari CSV
+  username     String     // username reply
+  text         String     // isi reply
+  createdAt    DateTime   // waktu reply
+
+  // labeling
+  label        Sentiment? // null jika belum dilabel
+  isCompleted  Boolean    @default(false)
+
+  order        Int        // untuk prev/next
+
+  project      Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+
+enum Sentiment {
+  POSITIVE
+  NEGATIVE
+  NEUTRAL
+}
+
