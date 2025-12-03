@@ -2,7 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --black1: #000000;
+  --white1: #FFFFFF;
+  --green: #27AE60;     
+  --gray-stroke: #B1B1B1;  
+  --grey5: #E0E0E0;        
+  --grey4: #BDBDBD;
+  --grey-card-font: #464B4E;
+  --blue1: #4075FF;
 }
 
 @theme inline {
@@ -14,13 +21,102 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter,sans-serif;
+}
+
+@layer utilities {
+  .text-h1 {
+    font-size: 58px;
+    line-height: 61.6px;
+    font-weight: 700;
+  }
+
+  .text-h2 {
+    font-size: 48px;
+    line-height: 52.8px;
+    font-weight: 700;
+  }
+
+  .text-h3 {
+    font-size: 40px;
+    line-height: 44px;
+    font-weight: 700;
+  }
+
+  .text-h4 {
+    font-size: 32px;
+    line-height: 35.5px;
+    font-weight: 700;
+  }
+
+  .text-h5 {
+    font-size: 24px;
+    line-height: 26.4px;
+    font-weight: 700;
+  }
+
+  .text-h6 {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  /* Body text */
+  .text-small {
+    font-size: 14px;
+    line-height: 19.6px;
+  }
+  .text-small-bold {
+    font-size: 12px;
+    line-height: 19.6px;
+  }
+
+  .text-normal {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+
+  .text-medium {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .text-large {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  /* ===== Brand Colors ===== */
+
+  .text-black1  { color: var(--black1); }
+  .bg-black1    { background-color: var(--black1); }
+
+  .text-white1  { color: var(--white1); }
+  .bg-white1    { background-color: var(--white1); }
+
+  .text-green   { color: var(--green); }
+  .bg-green     { background-color: var(--green); }
+
+  .text-gray-stroke { color: var(--gray-stroke); }
+  .bg-gray-stroke   { background-color: var(--gray-stroke); }
+
+  .text-grey5   { color: var(--grey5); }
+  .bg-grey5     { background-color: var(--grey5); }
+
+  .text-grey4   { color: var(--grey4); }
+  .bg-grey4     { background-color: var(--grey4); }
+
+  .text-grey-card-font { color: var(--grey-card-font); }
+  .bg-grey-card-font { background-color: var(--grey-card-font); }
+
+  .text-blue1 {color: var(--blue1);}
+  .bg-blue1 {background-color: var(--blue1);}
 }
