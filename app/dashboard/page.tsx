@@ -19,8 +19,8 @@ export default function DashboardPage() {
           const data = await res.json();
           const updated = data.projects.map((p: any) => ({
             ...p,
-            updateAt: new Date(p.updateAt),
-            createAt: new Date(p.createAt),
+            updatedAt: new Date(p.updatedAt),
+            createdAt: new Date(p.createdAt),
           }));
           setProjects(updated);
         } else {
@@ -51,12 +51,13 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <Header>
-        <Image src="/annotator-logo.svg" alt="Annotator Logo" width={160} height={80} priority />
-        <CreateButton />
-      </Header>
+      <Header title="Annotator" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 px-12 pt-36">
+      <div className="px-12 pt-28">
+        <CreateButton />
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5 px-12 pt-4">
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -65,9 +66,9 @@ export default function DashboardPage() {
             totaldata={project.totalData}
             completed={project.completed}
             status={project.status}
-            updateAt={project.updateAt}
-            createAt={project.createAt}
-            onDeleteSuccess={handleDeleteSuccess} // PASS FUNCTION
+            updatedAt={project.updatedAt}
+            createdAt={project.createdAt}
+            onDeleteSuccess={handleDeleteSuccess}
           />
         ))}
       </div>

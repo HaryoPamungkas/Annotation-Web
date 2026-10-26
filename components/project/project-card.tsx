@@ -9,8 +9,8 @@ interface ProjectCardProps {
   name: string;
   totaldata: number;
   completed: number;
-  updateAt: Date;
-  createAt: Date;
+  updatedAt: Date;
+  createdAt: Date;
   status: string;
   onDeleteSuccess: (id: string) => void;
 }
@@ -20,8 +20,8 @@ export default function ProjectCard({
   name,
   totaldata,
   completed,
-  updateAt,
-  createAt,
+  updatedAt,
+  createdAt,
   onDeleteSuccess,
 }: ProjectCardProps) {
   const router = useRouter();
@@ -83,7 +83,7 @@ export default function ProjectCard({
         <div className="relative w-fit group">
           <h4
             onClick={() => router.push(`/workspace/${id}`)}
-            className="text-h4 truncate max-w-[320px] cursor-pointer hover:underline"
+            className="text-h4 truncate max-w-[420px] cursor-pointer hover:underline"
           >
             {name}
           </h4>
@@ -107,8 +107,8 @@ export default function ProjectCard({
         <div className="flex justify-between items-center w-full pr-2">
           <p className="text-h5 text-grey-card-font">
             Update:{" "}
-            {updateAt instanceof Date && !isNaN(updateAt.getTime())
-              ? updateAt.toLocaleDateString("en-US", {
+            {updatedAt instanceof Date && !isNaN(updatedAt.getTime())
+              ? updatedAt.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",

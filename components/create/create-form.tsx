@@ -77,7 +77,7 @@ export default function CreateForm() {
       {errorNotif && (
         <div
           className="fixed top-5 left-1/2 -translate-x-1/2 bg-red-500 text-white 
-                      px-5 py-2 rounded-lg shadow-lg z-[9999] animate-slide-down-fade"
+                      px-5 py-2 rounded-lg shadow-lg z-9999 animate-slide-down-fade"
         >
           {errorNotif}
         </div>

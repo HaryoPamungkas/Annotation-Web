@@ -31,7 +31,7 @@ export default function LeftSidebar({
   }, []);
 
   return (
-    <aside className="w-[300px] pt-4 border-r bg-white min-h-[calc(100vh-144px)]">
+    <aside className="w-[300px] pt-4 border-r bg-white  min-h-[calc(94vh-72px)]">
       <div className="p-5">
         <div className="flex items-center gap-10">
           <div style={{ width: 61, height: 60 }}>
