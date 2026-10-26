@@ -8,7 +8,7 @@ Annotation-Web is a web application designed to simplify text annotation by allo
 
 ## Application Preview
 
-![Annotation-Web Workspace](screenshots/annotation-workspace.png)
+![Annotation-Web Workspace](annotation-workspace.png)
 
 ## Features
 
